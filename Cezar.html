@@ -1,0 +1,167 @@
+<html>
+<head>
+<title> Cifrul lui Cezar</title>
+<link rel="shortcut icon" href="Images/pen.png">
+<link href="Styles/Cstyle.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="background"> <img id="background" src="Images/background.jpg"/></div>
+<div id="title"><h1><b>CIFRUL CEZAR</b></h1></div>
+<div class="navbar">
+	<h1>ALTE SUBIECTE</h1>
+	<ul>
+		<li><a href="Home.html"><img id="img" src="Images/home.png"/></a></li>
+		<li><a href="Utilizari.html"><img  id="img" src="Images/imp.png"/></a></li>
+		<li><img id="current_page" src="Images/cezar.png"/></li>
+		<li><a href="Enigma.html"><img id="img" src="Images/enigma.png"/></a></li>
+		<li><a href="Contact.html"><img id="img" src="Images/contact.png"/></a></li>
+	</ul>
+</div>
+<div class="content">
+	<h2>Introducere</h2>
+		<p>&#206n criptografie, cifrul lui Cezar, numit &#351i cifru cu deplasare, codul lui Cezar sau deplasarea lui Cezar, este una dintre cele mai simple &#351i mai cunoscute tehnici de criptare.
+			Este un tip de cifru al substitu&#355iei, &#238n care fiecare liter&#259 din textul ini&#355ial este &#238nlocuit&#259 cu o liter&#259 care se afl&#259 &#238n alfabet la o distan&#355&#259 fix&#259 fa&#355&#259 de cea &#238nlocuit&#259. De exemplu, cu o deplasare de 3 pozi&#355ii, A este &#238nlocuit cu D
+			&#351i a&#351a mai departe. Aceast&#259 metod&#259 este numit&#259 a&#351a dup&#259 Iulius Cezar, care o folosea pentru a comunica cu generalii s&#259i. Pasul de criptare al cifrului lui Cezar este de obicei &#238ncorporat &#238n scheme mai complexe precum
+			Cifrul Vigenere, &#351i &#238nc&#259 mai are aplica&#355ii moderne &#238n sistemul ROT13. Ca orice alt cifru bazat pe substitu&#355ii alfabetice, cifrul lui Cezar este simplu de descifrat &#351i &#238n practic&#259 nu ofer&#259 securitate suficient&#259.</p>
+		</p>
+		<h3> Reprezentare a coresponden&#355ei dintre litere: </h3>
+		<img src="Images/rep.png" style="height: 20vh; width: 30vw; position: relative; left: 7vw;">
+	h3> Istorie </h3>
+		<p>Cifrul Cezar este denumit dup&#259 Iulius Cezar, care, conform Suetoniu, &#238l folosea cu o deplasare de 3 pentru protejarea mesajelor cu importan&#355&#259 militar&#259:</p>
+		<p style="font-style: italic">Dac&#259 avea ceva confiden&#355ial de comunicat, scria &#238ncifrat, adic&#259 schimba ordinea literelor din alfabet, astfel &#238nc&#226t nu se putea &#238n&#355elege nici un cuv&#226nt.
+				Dac&#259 cineva dore&#351te s&#259 descifreze &#351i s&#259 &#238n&#355eleag&#259, trebuie s&#259 &#238nlocuiasc&#259 a patra liter&#259 din alfabet, adic&#259 D, cu A, &#351i a&#351a mai departe pentru celelalte.</p>
+		<p>-Suetonius, Via&#355a lui Iulius Cezar 56</p>
+		<p>De&#351i Cezar a fost primul care a fost folosit cifrul &#238ntr-un mod &#238n care se poate atesta, alte cifruri bazate pe substitu&#355ie se cunosc ca fiind folosite anterior.
+				Nepotul lui Iulius Cezar, Augustus, a folosit de asemenea cifrul, dar cu o deplasare de unu:</p>
+		<p style="font-style: italic">C&#226nd scria &#238ncifrat, scria B &#238n loc de A, C &#238n loc de B, &#351i restul literelor pe acela&#351i principiu, folosind AA pentru X.</p>
+		<p>-Suetonius, Via&#355a lui Augustus 88</p>
+		<div id="crypto">
+		<h3 style= "text-align:center; text-decoration:underline;">Aplica&#355ie practic&#259</h3>
+		<form id="cform">
+				<h4>Da&#355i textul pe care &#238l dori&#355i criptat: </h4><input id="inputtxt" type="text" id="sentence" value="">
+				<h4>Da&#355i ordinul cript&#259rii :</h4> <input id="inputnr" type="text" id="ord" value="">
+		</form>
+		<button onclick="encrypt()">Cripteaz&#259!</button>
+		<div id="result">
+		Aici va ap&#259rea textul dup&#259 criptare.
+		</div>
+		</div>
+		<div id="crypto">
+		<form id="dform">
+				<h4>Da&#355i textul pe care &#238l dori&#355i decriptat: </h4><input id="inputtxt" type="text" id="sentence" value="">
+				<h4>Da&#355i ordinul cript&#259rii :</h4> <input id="inputnr" type="text" id="ord" value="">
+		</form>
+		<button onclick="decrypt()">Decripteaz&#259!</button>
+		<div id="result2">
+		Aici va ap&#259rea textul dup&#259 criptare.
+		</div>
+		</div>
+		<h3>Spargerea cifrului</h3>
+		<p>Cifrul Cezar poate fi spart u&#351or chiar &#351i av&#226nd la dispozi&#355ie numai criptotextul. Dou&#259 situa&#355ii pot fi luate &#238n considerare:</p>
+		<ol>
+			<li>Atacatorul cunoa&#351te (sau ghice&#351te) c&#259 a fost folosit&#259 un fel de substitu&#355ie simpl&#259, dar nu neap&#259rat o schem&#259 Cezar</li>
+			<li>Atacatorul &#351tie c&#259 s-a folosit cifrul Cezar, dar nu cunoa&#351te valoarea de deplasare.</li>
+		</ol>
+		<p>&#206n primul caz, cifrul poate fi spart folosind aceea&#351i tehnic&#259 ca pentru cazul general de substitu&#355ie simpl&#259, precum analiza frecven&#355ei
+				sau cuvinte &#351ablon. &#238n timpul decript&#259rii, este foarte probabil ca atacatorul s&#259 observe regularitatea &#238n solu&#355ie &#351i s&#259 deduc&#259 c&#259 cifrul Cezar este algoritmul folosit.</p>
+		<p>&#206n al doilea caz, spargerea schemei este mult mai simpl&#259. Deoarece num&#259rul de deplas&#259ri posibile e limitat (31 &#238n rom&#226n&#259), fiecare din ele poate fi testat&#259 printr-un atac prin
+		for&#355&#259 brut&#259. O cale de a realiza acest lucru este de a scrie un fi&#351ier cu criptotextul &#238ntr-un tabel cu toate deplas&#259rile posibile � tehnic&#259 numit&#259 uneori
+		"completarea componentei normale". </p>
+		<p>Cript&#259ri &#351i decript&#259ri multiple nu aduc nimic &#238n plus &#238n ceea ce prive&#351te securitatea. Aceasta pentru c&#259 dou&#259 cript&#259ri, de exemplu deplasarea A &#351i deplasarea B,
+				vor fi echivalente cu deplasarea A + B. &#238n termeni matematici, criptarea cu diferite chei formeaz&#259 un grup.</p>
+		<h3>Aici pute&#355i viziona o scurt&#259 prezentare a celor de la "Khan Academy" despre Cifrul lui Cezar.</h3>
+		<iframe src="https://www.youtube.com/embed/sMOZf4GN3oc" frameborder="0" allowfullscreen></iframe>
+</div>
+<div id="footer"> Atestat la Informatic&#259 - D&#226rjan C&#259t&#259lin - cls. a XII-a D - Colegiul Na&#355ional "Silvania"</div>
+<!-- Script -->
+<script>
+function encrypt() {
+
+	// Wrap the amount
+	var x = document.getElementById("cform");
+	var str = x.elements[0].value;
+	var amount = ord = parseInt(x.elements[1].value);;
+	if (amount < 0)
+		return caesarShift(str, amount + 26);
+
+	// Make an output variable
+	var output = '';
+
+	// Go through each character
+	for (var i = 0; i < str.length; i ++) {
+
+		// Get the character we'll be appending
+		var c = str[i];
+
+		// If it's a letter...
+		if (c.match(/[a-z]/i)) {
+
+			// Get its code
+			var code = str.charCodeAt(i);
+
+			// Uppercase letters
+			if ((code >= 65) && (code <= 90))
+				c = String.fromCharCode(((code - 65 + amount) % 26) + 65);
+
+			// Lowercase letters
+			else if ((code >= 97) && (code <= 122))
+				c = String.fromCharCode(((code - 97 + amount) % 26) + 97);
+
+		}
+
+		// Append
+		output += c;
+
+	}
+
+	// All done!
+	document.getElementById("result").innerHTML = output;
+
+};
+
+function decrypt() {
+
+	// Wrap the amount
+	var x = document.getElementById("dform");
+	var str = x.elements[0].value;
+	var amount = ord = parseInt(x.elements[1].value);;
+	if (amount < 0)
+		return caesarShift(str, amount + 26);
+
+	// Make an output variable
+	var output = '';
+
+	// Go through each character
+	for (var i = 0; i < str.length; i ++) {
+
+		// Get the character we'll be appending
+		var c = str[i];
+
+		// If it's a letter...
+		if (c.match(/[a-z]/i)) {
+
+			// Get its code
+			var code = str.charCodeAt(i);
+
+			// Uppercase letters
+			if ((code >= 65) && (code <= 90))
+				c = String.fromCharCode(((code - 65 - amount) % 26) + 91);
+
+			// Lowercase letters
+			else if ((code >= 97) && (code <= 122))
+				c = String.fromCharCode(((code - 97 - amount) % 26) + 97);
+
+		}
+
+		// Append
+		output += c;
+
+	}
+
+	// All done!
+	document.getElementById("result2").innerHTML = output;
+
+};
+</script>
+</body>
+</html>
